@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1>Forge</h1>
+  <p class="lead">
+    Usine logicielle d'Argonot & utilitaires projet
+  </p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="tool in tools" class="tool">
+    <div>
+      <img src="{{tool.urlImage}}"/>
+    </div>
+    <div>
+      {{tool.name}}
+    </div>
+    <div>
+      {{tool.desc}}
+    </div>
+  </div>
+</div>
