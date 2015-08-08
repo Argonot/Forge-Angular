@@ -8,24 +8,7 @@
  * Controller of the forgeApp
  */
 angular.module('forgeApp')
-  .controller('MainCtrl', function ($scope) {
-    var tools = [
-      {
-        "urlImage": "http://test1.jpg",
-        "name": "Titre1",
-        "desc": "Titre de l'outil 1"
-      },
-      {
-        "urlImage": "http://test2.jpg",
-        "name": "Titre2",
-        "desc": "Titre de l'outil 2"
-      }
-    ];
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $http) {
+    $http.get('http://127.0.0.1:8080/forge-api/tools/list').success(function(response) {$scope.tools = response});
     $scope.date = new Date();
-    $scope.tools = tools;
   });
