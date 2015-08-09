@@ -1,20 +1,22 @@
-<div class="jumbotron">
-  <h1>Forge</h1>
-  <p class="lead">
-    Usine logicielle d'Argonot & utilitaires projet
-  </p>
-</div>
-
-<div class="row marketing">
-  <div ng-repeat="tool in tools" class="tool">
-    <div>
-      <img src="{{tool.urlImage}}"/>
-    </div>
-    <div>
-      {{tool.name}}
-    </div>
-    <div>
-      {{tool.desc}}
+<div class="panel panel-default" >
+  <div class="panel-heading">
+    <div class="panel-title text-center">Tools</div>
+  </div>
+  <div class="row marketing">
+    <div ng-repeat="tool in tools" class="tool col-lg-4">
+      <a ng-href="{{tool.urlTool}}" target="_blank">
+        <div class=" panel panel-default">
+          <div class="image text-center">
+            <img ng-src="{{tool.urlImage}}"/>
+          </div>
+          <div class="text-center">
+            {{tool.name}}
+          </div>
+          <div class="text-center">
+            {{tool.desc}}
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
