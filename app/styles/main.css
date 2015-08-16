@@ -91,9 +91,6 @@ body {
 .image {
   height:175px;
 }
-.navbar {
-  min-height:75px !important;
-}
 
 #loginbox {
   margin-top: 30px;
@@ -157,3 +154,25 @@ body {
   height: 100%;
 }
 
+.welcome-msg {
+  margin-top:30px;
+}
+
+.header {
+  background-image : url(../images/bg_top_header.png);
+  font-family : 'Calibri', sans-serif;
+  color:#FFFFFF;
+  font-size:15px;
+  line-height: normal;
+  text-shadow: rgba(0, 0, 0, 0.496094)1px 1px 3px;
+}
+
+.header a {
+  color:#FFFFFF;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.header a:hover {
+  text-decoration:underline;
+}

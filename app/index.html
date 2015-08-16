@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body ng-app="forgeApp" ng-cloak>
+<body ng-app="forgeApp" ng-controller="AppCtrl" ng-cloak>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -25,20 +25,20 @@
   <div class="navbar" role="navigation">
     <div class="container">
       <div class="navbar-header">
-
         <a class="navbar-brand" href="#/">
-          <img src="images/argonot.jpg"/>
-          Argonot
+          <img src="images/logo_150.png"/>
         </a>
       </div>
 
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        <div class="pull-right welcome-msg">
+          <span class="glyphicon glyphicon-user"></span>&nbsp;
+          <span ng-if="currentUser">Welcome, {{ currentUser.surname }} {{ currentUser.name }} | </span>
+          <a ng-if="currentUser" href ng-click="logout()">Log out</a>
+          <a href="#/login" ng-if="!currentUser">Log-in</a>
+        </div>
       </div>
 
-      <div class="pull-right">
-        <span class="glyphicon glyphicon-user"></span>
-        <a href="#/login">Log-in</a>
-      </div>
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="footer">
-  <div class="container" ng-app ng-controller="MainCtrl">
+  <div class="container">
     <p>© Argonot {{date | date:'yyyy'}} - All rights reserved</p>
   </div>
 </div>
@@ -81,10 +81,14 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/services/mainService.js"></script>
-<script src="scripts/controllers/mainController.js"></script>
-<script src="scripts/config/config.js"></script>
-<script src="scripts/routes/forgewsRoutes.js"></script>
+<script src="scripts/factories/toolFactory.js"></script>
+<script src="scripts/services/authService.js"></script>
+<script src="scripts/controllers/appController.js"></script>
+<script src="scripts/controllers/loginController.js"></script>
+<script src="scripts/constants/config.js"></script>
+<script src="scripts/constants/routes.js"></script>
+<script src="scripts/constants/authEvents.js"></script>
+<script src="scripts/constants/userRoles.js"></script>
 <!-- endbuild -->
 </body>
 </html>

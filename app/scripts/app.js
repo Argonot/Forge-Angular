@@ -17,15 +17,17 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'AppCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'UserCtrl'
+        controller: 'LoginCtrl'
       })
       .otherwise({
         redirectTo: '/'
