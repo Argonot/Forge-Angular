@@ -11,20 +11,9 @@
  * Controller of the forgeApp
  */
 angular.module('forgeApp')
-  .controller('AppCtrl', function ($scope, $cookieStore, $location, toolFactory, USER_ROLES, AuthService) {
-    $scope.currentUser = $cookieStore.get('currentUser');
-    $scope.userRoles = USER_ROLES;
-    $scope.isAuthorized = AuthService.isAuthorized;
-
-    $scope.setCurrentUser = function (user) {
-      $scope.currentUser = user;
-    };
+  .controller('AppCtrl', function ($scope, $cookieStore, $location, toolFactory) {
     toolFactory.listTools().success(function(data) {
       $scope.tools = data;
     });
-    $scope.logout =  function() {
-      $scope.currentUser = null;
-      $cookieStore.remove('currentUser');
-      $location.url('/');
-    }
+    $scope.date = new Date();
   });
